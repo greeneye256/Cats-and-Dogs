@@ -10,9 +10,8 @@ public class Main {
         int numberOfDogs = 0;
         int numberOfCats = 0;
 
-        List<Cat> cats = new ArrayList<>(0);
-        List<Dog> dogs = new ArrayList<>(0);
-
+        Cat[] cats = new Cat[10];
+        Dog[] dogs = new Dog[10];
 
         boolean stayInLoop = true;
         while (stayInLoop) {
@@ -28,7 +27,8 @@ public class Main {
                     System.out.print("Color = ");
                     String color = scn.nextLine();
 
-                    cats.add(createCat(name,color));
+                    cats[numberOfCats] = (createCat(name,color));
+                    numberOfCats++;
                     break;
                 case 'b':
                     System.out.print("Name = ");
@@ -36,13 +36,20 @@ public class Main {
                     String dogName = scn1.nextLine();
                     System.out.print("Color = ");
                     String dogColor = scn1.nextLine();
-                    dogs.add(createDog(dogName,dogColor));
+                    dogs[numberOfDogs] = (createDog(dogName,dogColor));
+                    numberOfDogs++;
                     break;
                 case 'c':
-                    printCats(cats);
+                    if (numberOfCats==0)break;
+                    for (int i = 0; i < numberOfCats; i++) {
+                        System.out.println(cats[i]);
+                    }
                     break;
                 case 'd':
-                    printDogs(dogs);
+                    if (numberOfDogs==0)break;
+                    for (int i = 0; i < numberOfDogs; i++) {
+                        System.out.println(dogs[i]);
+                    }
                     break;
                 case 'q':
                     stayInLoop = false;
@@ -60,13 +67,13 @@ public class Main {
 
     }
 
-    public static void printDogs(List<Dog> dogs){
+    public static void printDogs(Dog... dogs){
         for (Dog dog:dogs
              ) {
             System.out.println(dog);
         }
     }
-    public static void printCats(List<Cat> cats){
+    public static void printCats(Cat... cats){
         for (Cat cat:cats
         ) {
             System.out.println(cat);
