@@ -21,22 +21,11 @@ public class Main {
 
             switch (choice) {
                 case 'a':
-                    System.out.print("Name = ");
-                    Scanner scn = new Scanner(System.in);
-                    String name = scn.nextLine();
-                    System.out.print("Color = ");
-                    String color = scn.nextLine();
-
-                    cats[numberOfCats] = (createCat(name,color));
+                    cats[numberOfCats] = (createCat());
                     numberOfCats++;
                     break;
                 case 'b':
-                    System.out.print("Name = ");
-                    Scanner scn1 = new Scanner(System.in);
-                    String dogName = scn1.nextLine();
-                    System.out.print("Color = ");
-                    String dogColor = scn1.nextLine();
-                    dogs[numberOfDogs] = (createDog(dogName,dogColor));
+                    dogs[numberOfDogs] = (createDog());
                     numberOfDogs++;
                     break;
                 case 'c':
@@ -92,11 +81,22 @@ public class Main {
         return myChar;
     }
 
-    public static Dog createDog(String name, String color){
+    public static Dog createDog(){
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("name = ");
+        String name = sc.nextLine();
+        System.out.println("color = ");
+        String color = sc.nextLine();
         return new Dog(name,color);
     }
-    public static Cat createCat(String name, String color){
+    public static Cat createCat(){
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("name = ");
+        String name = sc.nextLine();
+        System.out.println("color = ");
+        String color = sc.nextLine();
 
         return new Cat(name,color);
     }
